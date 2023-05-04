@@ -13,7 +13,6 @@ class MainWindow;  // 添加这行前置声明语句
 class myDialog : public QDialog
 {
     Q_OBJECT
-
 public:
     explicit myDialog(QWidget *parent = 0, MainWindow *mainWindow = 0);
     ~myDialog();

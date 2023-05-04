@@ -69,6 +69,7 @@ MainWindow::MainWindow(QWidget *parent) :
     });
 
     connect(ui->pushButton_2, &QPushButton::clicked, [=]() { //生成文件按钮
+        //qDebug() << this->res;
         if (this->flag == true) {
             QString path_name = QFileDialog::getSaveFileName(this,
                                                              "打开文件",

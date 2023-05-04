@@ -35,7 +35,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>请选择打开项目方式:</string>
+    <string>项目打开方式:</string>
    </property>
   </widget>
   <widget class="QComboBox" name="comboBox">

@@ -438,7 +438,7 @@ void myDialog::generate_code(int index) {
         this->mainWindow_->action_label = act_label;
         //qDebug() << "此处发送set_widget信号";
         emit set_widget();
-    } else if (index == 13) {
+    } else if (index == 13) { //区域
         QString s1 = ui->lineEdit_149->text();
         QString s2 = ui->lineEdit_151->text();
         QString s3 = ui->lineEdit_148->text();
@@ -470,7 +470,7 @@ void myDialog::generate_code(int index) {
         this->mainWindow_->action_label = act_label;
         //qDebug() << "此处发送set_widget信号";
         emit set_widget();
-    } else if (index == 15) {
+    } else if (index == 15) { //旋转
         QString nameList = ui->lineEdit_160->text();
         QString s2 = ui->comboBox_3->currentText();
         QString s3 = ui->lineEdit_159->text();
@@ -574,7 +574,7 @@ void myDialog::generate_code(int index) {
         QString argument2 = "[\"" + strList2.join("\", \"") + "\"]";
         QString execute = QString("my_subtract(%1, %2);\n\n").arg(argument1).arg(argument2);
         this->mainWindow_->res += execute;
-        QString str = nameList1 + "," + nameList2;
+        QString str = nameList1 + " - " + nameList2;
         Action_Label* act_label = new Action_Label(this->mainWindow_, str, ui->stackedWidget->currentIndex());
         this->mainWindow_->action_label = act_label;
         //qDebug() << "此处发送set_widget信号";
@@ -604,7 +604,7 @@ void myDialog::generate_code(int index) {
         this->mainWindow_->action_label = act_label;
         //qDebug() << "此处发送set_widget信号";
         emit set_widget();
-    } else if (index == 24) {
+    } else if (index == 24) { //标记
         QString nameList1 = ui->lineEdit_28->text();
         QString nameList2 = ui->lineEdit_184->text();
         QStringList strList1 = nameList1.split(",");
@@ -820,8 +820,8 @@ void myDialog::validator_config() {
     ui->lineEdit_199->setValidator(validator2);
     ui->lineEdit_190->setValidator(validator2);
     ui->lineEdit_200->setValidator(validator2);
-    //validator3：只能输入大小写字母和数字和下划线
-    QRegularExpressionValidator* validator3 = new QRegularExpressionValidator(QRegularExpression("^[a-zA-Z0-9_]*$"), ui->lineEdit_219);
+    //validator3：只能输入大小写字母和数字和下划线，且不能以数字开头
+    QRegularExpressionValidator* validator3 = new QRegularExpressionValidator(QRegularExpression("^(?![0-9])\\w*$"), ui->lineEdit_219);
     ui->lineEdit_219->setValidator(validator3);
     ui->lineEdit_209->setValidator(validator3);
     ui->lineEdit_54->setValidator(validator3);
